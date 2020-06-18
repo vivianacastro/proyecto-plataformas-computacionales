@@ -2,11 +2,13 @@
 
 ## Dependencias de desarrollo
 
-### Inatalar kubectl
+### Instalar kubectl
+Se Instala kubectl para monitorizar el cluster.
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 ### Instalar minikube
+Se instala minikube la cual es una herramienta que despliega un clúster de Kubernetes con un único nodo.
 
 https://kubernetes.io/es/docs/tasks/tools/install-minikube/
 
@@ -16,13 +18,13 @@ minikube start
 
 ### Instalar arkade
 
-Arcade nos permite instalar paquetes en Kubernetes. Remplaza la herramienta k3sup ('ketchup').
+Arcade nos permite instalar paquetes en Kubernetes. Reemplaza la herramienta k3sup ('ketchup').
 
 ```
 curl -SLsf https://dl.get-arkade.dev/ | sudo sh
 ```
 
-### Inatalar OpenFaaS en minikube
+### Instalar OpenFaaS en minikube
 
 Instalamos OpenFaaS en minikube usando el siguiente comando:
 
