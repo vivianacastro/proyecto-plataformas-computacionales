@@ -1,9 +1,12 @@
 # proyecto-plataformas-computacionales
 
+Proyecto final del curso Plataformas Computacionales.
+
 ## Dependencias de desarrollo
 
 ### Instalar kubectl
-Se Instala kubectl para monitorizar el cluster.
+
+Se instala kubectl para monitorizar el cluster.
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
@@ -57,37 +60,38 @@ faas-cli store deploy figlet
 faas-cli list
 ```
 
-### Crear, mpaquetar y desplegar una funcion
+## Crear, empaquetar y desplegar una funcion
 
-Para organizar debidamente el repositorio creó la carpeta `functions`. Al interior de esta carpeta se ejecutan los siguientes comandos. Para crear la función usamos:
+Se creó la carpeta `functions`  la cual contendra nuestras funciones. Al interior de esta carpeta se ejecutan los siguientes comandos. 
 
+Para crear la función usamos:
 ```
 faas-cli new --lang python <NOMBRE_PROYECTO>
 ```
 
-Para construir nuestra función usamos el comando:
-
+Para construir nuestra función usamos:
 ```
 faas-cli build -f <NOMBRE_ARCHIVO_YML>
 ```
 
-Antes de publicar la función a internet debemos logearnos en la cuenta dispuesta para Docker Hub a traves del comando `docker login --username=<USERNAME>`. Para subir la función a internet usamos el comando:
-
+Antes de publicar la función debemos logearnos en la cuenta dispuesta para Docker Hub a traves del comando `docker login --username=<USERNAME>`. Para publicar la función usamos:
 ```
 faas-cli push -f <NOMBRE_ARCHIVO_YML>
 ```
 
-Para desplegar la función usamos el comando:
+Para desplegar la función usamos:
 ```
 faas-cli deploy -f <NOMBRE_ARCHIVO_YML>
 ```
 
-Para ejecutar la función a traves de un endpoint y no la linea de comandos usamos:
+Para probar la función usamos:
 ```
 curl localhost:8080/function/<NOMBRE_PROYECTO> -d <PARAMETROS_FUNCION>
 ```
 
-## Como iniciar? 
+## Configurar tunneling
+
+Para exponer el recurso creado anteriormente a internet nos basamos en el repositorio (https://github.com/josanabr/tunneling-inlets)[https://github.com/josanabr/tunneling-inlets], por lo tanto al interior de la carpeta `tunneling` copiamos el archivo Vagrantfile y algunas dependencias necesarias para llevar a cabo la configuración del puente.
 
 
 
