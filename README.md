@@ -55,12 +55,29 @@ faas-cli store deploy figlet
 faas-cli list
 ```
 
-### Crear funcion
+### Crear, mpaquetar y desplegar una funcion
 
-Para crear nuestra función usamos el comando:
+Para organizar debidamente el repositorio creó la carpeta `functions`. Al interior de esta carpeta se ejecutan los siguientes comandos. Para crear la función usamos:
 
 ```
-faas-cli new --lang python <NOMBRE_FUNCION>
+faas-cli new --lang python <NOMBRE_PROYECTO>
+```
+
+Para construir nuestra función usamos el comando:
+
+```
+faas-cli build -f <NOMBRE_ARCHIVO_YML>
+```
+
+Antes de publicar la función a internet debemos logearnos en la cuenta dispuesta para Docker Hub a traves del comando `docker login --username=<USERNAME>`. Para subir la función a internet usamos el comando:
+
+```
+faas-cli push -f <NOMBRE_ARCHIVO_YML>
+```
+
+Para desplegar la función usamos el comando:
+```
+faas-cli deploy -f <NOMBRE_ARCHIVO_YML>
 ```
 
 ## Como iniciar? 
