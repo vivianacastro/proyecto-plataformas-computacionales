@@ -80,6 +80,11 @@ Para desplegar la función usamos el comando:
 faas-cli deploy -f <NOMBRE_ARCHIVO_YML>
 ```
 
+Para ejecutar la función a traves de un endpoint y no la linea de comandos usamos:
+```
+curl localhost:8080/function/<NOMBRE_PROYECTO> -d <PARAMETROS_FUNCION>
+```
+
 ## Como iniciar? 
 
 
