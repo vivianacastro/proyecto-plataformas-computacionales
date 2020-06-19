@@ -6,15 +6,21 @@ Proyecto final del curso Plataformas Computacionales.
 
 ### Instalar kubectl
 
-Se instala kubectl para monitorizar el cluster.
+Se instala kubectl para monitorizar el cluster. Se sigue la guía de instalación [aquí](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
-https://kubernetes.io/docs/tasks/tools/install-kubectl/
+```
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+
+chmod +x ./kubectl
+
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
 
 ### Instalar minikube
-Se instala minikube la cual es una herramienta que despliega un clúster de Kubernetes con un único nodo.
 
-https://kubernetes.io/es/docs/tasks/tools/install-minikube/
+Se instala minikube la cual es una herramienta que despliega un clúster de Kubernetes con un único nodo. Se sigue la guía de instalación [aquí](https://kubernetes.io/es/docs/tasks/tools/install-minikube/). 
 
+Para iniciar el cluster.
 ```
 minikube start
 ```
