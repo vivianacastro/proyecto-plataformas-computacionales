@@ -4,7 +4,7 @@ provider:
   gateway: http://127.0.0.1:8080
 functions:
   objects-recognition:
-    lang: python3
+    lang: python3-debian
     handler: ./objects-recognition
     image: vivianacastro/objects-recognition:latest
 

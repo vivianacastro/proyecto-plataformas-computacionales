@@ -31,7 +31,6 @@ def display_image(image):
     plt.imshow(image)
     plt.savefig('./tmp/image.jpg')
 
-
 def download_and_resize_image(url, new_width=256, new_height=256,
                               display=False):
     _, filename = tempfile.mkstemp(dir='./tmp/', prefix='x', suffix=".jpg")
@@ -47,7 +46,6 @@ def download_and_resize_image(url, new_width=256, new_height=256,
     if display:
         display_image(pil_image)
     return filename
-
 
 def draw_bounding_box_on_image(image,
                                ymin,
@@ -90,7 +88,6 @@ def draw_bounding_box_on_image(image,
                   font=font)
         text_bottom -= text_height - 2 * margin
 
-
 def draw_boxes(image, boxes, class_names, scores, max_boxes=7, min_score=0.3):
 
     colors = list(ImageColor.colormap.values())
@@ -119,7 +116,6 @@ def draw_boxes(image, boxes, class_names, scores, max_boxes=7, min_score=0.3):
                 display_str_list=[display_str])
             np.copyto(image, np.array(image_pil))
     return image
-
 
 def load_img(path):
     img = tf.io.read_file(path)
