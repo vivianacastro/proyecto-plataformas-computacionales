@@ -19,7 +19,7 @@ from PIL import ImageOps
 # Para medir el tiempo de inferencia
 import time
 
-# Para leer parámetros de la consola y manejar directorios
+# Para leer parametros de la consola y manejar directorios
 import sys
 import os
 
@@ -68,7 +68,7 @@ def draw_bounding_box_on_image(image,
 
     # Sobrepone cuadros en caso de que excedan dimensiones la imagen
     display_str_heights = [font.getsize(ds)[1] for ds in display_str_list]
-    # Márgenes las etiquetas en la imagen
+    # Margenes las etiquetas en la imagen
     total_display_str_height = (1 + 2 * 0.05) * sum(display_str_heights)
 
     if top > total_display_str_height:
@@ -161,4 +161,4 @@ def recognize(url):
         detector = hub.load(module_handle).signatures['default']
         detect_img(detector, url)
     else:
-        return "Extensión de la imagen inválida. Intente .jpg, .gif, .png or .webp"
+        return "Extension de la imagen invalida. Intente .jpg, .gif, .png or .webp"
