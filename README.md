@@ -27,7 +27,6 @@ vagrant reload
 
 Se instala kubectl para monitorizar el cluster. Se sigue la guía de instalación [aquí](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Se instala de manera automática al crear la maquina virtual (Ver `installation-scripts/install-kubectl.sh`).
 
-
 ### Instalar minikube
 
 Se instala minikube la cual es una herramienta que despliega un clúster de Kubernetes con un único nodo. Se sigue la guía de instalación [aquí](https://kubernetes.io/es/docs/tasks/tools/install-minikube/). Se instala de manera automática al crear la maquina virtual (Ver `installation-scripts/install-minikube.sh`).
@@ -35,6 +34,16 @@ Se instala minikube la cual es una herramienta que despliega un clúster de Kube
 Para iniciar el cluster:
 ```
 sudo minikube start
+```
+
+Para detener el cluster:
+```
+sudo minikube stop
+```
+
+Para eliminar el cluster:
+```
+sudo minikube delete
 ```
 
 Para verificar la creación del cluster usamos:
@@ -70,14 +79,14 @@ curl -SLsf https://cli.openfaas.com | sudo sh
 Para redireccionar el gateway a la maquina se ejecuta:
 
 ```
-kubectl rollout status -n openfaas deploy/gateway
-kubectl port-forward -n openfaas svc/gateway 8080:8080 &
+sudo kubectl rollout status -n openfaas deploy/gateway
+sudo kubectl port-forward -n openfaas svc/gateway 31112:8080 &
 ```
 
 Si la autenticación basica esta habilitada, iniciamos sesión usando:
 
 ```
-PASSWORD=$(kubectl get secret -n openfaas basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode; echo)
+PASSWORD=$(sudo kubectl get secret -n openfaas basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode; echo)
 echo -n $PASSWORD | faas-cli login --username admin --password-stdin
 
 faas-cli store deploy figlet
