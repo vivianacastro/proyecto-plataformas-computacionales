@@ -72,6 +72,8 @@ vagrant ssh
 
 ## ¿Como iniciar?
 
+Los siguientes pasos se ejecutan o bien en directamente en la maquina si se siguio la `Instalación directa` o en ma maquina virtual si se sigui la Instalación usando `Instalación usando Vagrantfile`.
+
 ### Iniciar minikube
 
 Para iniciar el cluster:
