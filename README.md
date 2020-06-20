@@ -97,7 +97,7 @@ curl localhost:8080/function/<NOMBRE_PROYECTO> -d <PARAMETROS_FUNCION>
 
 ## Configurar tunneling
 
-Para exponer el recurso creado anteriormente a internet nos basamos en el repositorio [josanabr/tunneling-inlets](https://github.com/josanabr/tunneling-inlets), por lo tanto al interior de la carpeta `tunneling` copiamos el archivo Vagrantfile y algunas dependencias necesarias para llevar a cabo la configuración del puente.
+Para exponer el recurso creado anteriormente a internet nos basamos en el repositorio [josanabr/tunneling-inlets](https://github.com/josanabr/tunneling-inlets), por lo tanto copiamos el archivo Vagrantfile y algunas dependencias necesarias para llevar a cabo la configuración del puente.
 
 
 
