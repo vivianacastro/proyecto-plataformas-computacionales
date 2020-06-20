@@ -4,30 +4,48 @@ Proyecto final del curso Plataformas Computacionales.
 
 ## Dependencias de desarrollo
 
+### Configurar tunneling
+
+Para exponer el recurso a internet nos basamos en el repositorio [josanabr/tunneling-inlets](https://github.com/josanabr/tunneling-inlets), por lo tanto copiamos el archivo Vagrantfile y algunas dependencias necesarias para llevar a cabo la configuración del puente.
+
+Para levantar la maquina virtual usamos:
+```
+vagrant up
+```
+
+Para entrar a la maquina virtual usamos:
+```
+vagrant ssh
+```
+
+Para recargar la maquina virtual usamos:
+```
+vagrant reload
+```
+
 ### Instalar kubectl
 
-Se instala kubectl para monitorizar el cluster. Se sigue la guía de instalación [aquí](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+Se instala kubectl para monitorizar el cluster. Se sigue la guía de instalación [aquí](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Se instala de manera automática al crear la maquina virtual (Ver `installation-scripts/install-kubectl.sh`).
 
-```
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-
-chmod +x ./kubectl
-
-sudo mv ./kubectl /usr/local/bin/kubectl
-```
 
 ### Instalar minikube
 
-Se instala minikube la cual es una herramienta que despliega un clúster de Kubernetes con un único nodo. Se sigue la guía de instalación [aquí](https://kubernetes.io/es/docs/tasks/tools/install-minikube/). 
+Se instala minikube la cual es una herramienta que despliega un clúster de Kubernetes con un único nodo. Se sigue la guía de instalación [aquí](https://kubernetes.io/es/docs/tasks/tools/install-minikube/). Se instala de manera automática al crear la maquina virtual (Ver `installation-scripts/install-minikube.sh`).
 
-Para iniciar el cluster.
+Para iniciar el cluster:
 ```
-minikube start
+sudo minikube start
+```
+
+Para verificar la creación del cluster usamos:
+```
+sudo kubectl get nodes
+sudo kubectl cluster-info
 ```
 
 ### Instalar arkade
 
-Arcade nos permite instalar paquetes en Kubernetes. Reemplaza la herramienta k3sup ('ketchup').
+Arcade nos permite instalar paquetes en Kubernetes. Reemplaza la herramienta k3sup ('ketchup'). 
 
 ```
 curl -SLsf https://dl.get-arkade.dev/ | sudo sh
@@ -95,9 +113,7 @@ Para probar la función usamos:
 curl localhost:8080/function/<NOMBRE_PROYECTO> -d <PARAMETROS_FUNCION>
 ```
 
-## Configurar tunneling
 
-Para exponer el recurso creado anteriormente a internet nos basamos en el repositorio [josanabr/tunneling-inlets](https://github.com/josanabr/tunneling-inlets), por lo tanto copiamos el archivo Vagrantfile y algunas dependencias necesarias para llevar a cabo la configuración del puente.
 
 
 

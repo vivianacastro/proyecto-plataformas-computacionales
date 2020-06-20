@@ -1,14 +1,14 @@
-# Para realizar la inferencia usando tf-hub
+# Para realizar la inferencia usando Tensorflow
 import tensorflow as tf
 import tensorflow_hub as hub
 
-# Para descargar una imagen
+# Para descargar la imagen
 import matplotlib.pyplot as plt
 import tempfile
 from six.moves.urllib.request import urlopen
 from six import BytesIO
 
-# Para dibujar en una image
+# Para dibujar la imagen
 import numpy as np
 from PIL import Image
 from PIL import ImageColor
@@ -16,15 +16,18 @@ from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageOps
 
-# Para medir el tiempo de inferencia
+# Para medir tiempo de inferencia
 import time
 
 # Para leer parametros de la consola y manejar directorios
 import sys
 import os
 
+# Para retornar la imagen a traves de HTTP
+from flask import send_file
+
 def handle(req):
-    return recognize(req)
+    return send_file(recognize(req), mimetype='image/jpeg', as_attachment=True)
 
 def display_image(image):
     plt.grid(False)
