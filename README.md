@@ -206,4 +206,10 @@ Con el resultado arrojado en la ejecución del script anterior. Para crear el no
 ./create-inlets-client.sh
 ```
 
+### Ejecutar función a través del nodo de salida
+
+Para ejecutar la función a través del nodo de salida usamos (Devemos reemplazar REMOTE por la IP y PORT arrojados en la ejecución del screipt anterior):
+```
+curl <REMOTE>/function/<NOMBRE_PROYECTO> -d <PARAMETROS_FUNCION>
+```
 
