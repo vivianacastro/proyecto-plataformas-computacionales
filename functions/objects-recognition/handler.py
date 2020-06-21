@@ -1,14 +1,15 @@
-# Para realizar la inferencia usando Tensorflow
+
+# Para realizar la inferencia usando tf-hub
 import tensorflow as tf
 import tensorflow_hub as hub
 
-# Para descargar la imagen
+# Para descargar una imagen
 import matplotlib.pyplot as plt
 import tempfile
 from six.moves.urllib.request import urlopen
 from six import BytesIO
 
-# Para dibujar la imagen
+# Para dibujar en una image
 import numpy as np
 from PIL import Image
 from PIL import ImageColor
@@ -16,18 +17,15 @@ from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageOps
 
-# Para medir tiempo de inferencia
+# Para medir el tiempo de inferencia
 import time
 
 # Para leer parametros de la consola y manejar directorios
 import sys
 import os
 
-# Para retornar la imagen a traves de HTTP
-from flask import send_file
-
 def handle(req):
-    return send_file(recognize(req), mimetype='image/jpeg', as_attachment=True)
+    print(recognize(req))
 
 def display_image(image):
     plt.grid(False)
@@ -148,10 +146,10 @@ def run_detector(detector, path):
     print("%d objeto(s) detectado(s)." % len(result["detection_scores"]))
     print("Tiempo de inferencia: ", end_time-start_time)
 
-    image_with_boxes = draw_boxes(
-        img.numpy(), result["detection_boxes"],
-        result["detection_class_entities"], result["detection_scores"])
-    display_image(image_with_boxes)
+    paired_results = dict(
+        zip(result['detection_class_entities'][:5], result['detection_scores'][:5]))
+
+    print(paired_results)
 
 def detect_img(detector, image_url):
     image_path = download_and_resize_image(image_url, 640, 480)
@@ -164,4 +162,4 @@ def recognize(url):
         detector = hub.load(module_handle).signatures['default']
         detect_img(detector, url)
     else:
-        return "Extension de la imagen invalida. Intente .jpg, .gif, .png or .webp"
+        return "Invalid file extension. Try .jpg, .gif, .png or .webp"
