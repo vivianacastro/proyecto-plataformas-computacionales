@@ -1,7 +1,9 @@
 ### Instrucciones para la ejecución de del script
 
-Parámetro 1: URL de la imagen con extensión .jpg, .png, .wpg o .gif.
-Parámetro 2: Opcional. Cantidad máxima de objetos que se desean mostrar como identificados. Por defecto 8.
+##### Parámetro 1:
+URL de la imagen con extensión .jpg, .png, .wpg o .gif.
+##### Parámetro 2: 
+Opcional. Cantidad máxima de objetos que se desean mostrar como identificados. Por defecto 8.
 
 
 #### Ejemplo de Ejecución 
