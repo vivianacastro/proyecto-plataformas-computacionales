@@ -41,7 +41,6 @@ def download_and_resize_image(url, new_width=256, new_height=256,
   pil_image = ImageOps.fit(pil_image, (new_width, new_height), Image.ANTIALIAS)
   pil_image_rgb = pil_image.convert("RGB")
   pil_image_rgb.save(filename, format="JPEG", quality=90)
-  print("Imagen descargada en %s." % filename)
   if display:
     display_image(pil_image)
   return filename
@@ -134,7 +133,6 @@ def valid_image_ext(url):
 
 def run_detector(detector, path, amount):
   img = load_img(path)
-  print(amount)
   converted_img  = tf.image.convert_image_dtype(img, tf.float32)[tf.newaxis, ...]
   start_time = time.time()
   result = detector(converted_img)
@@ -142,8 +140,6 @@ def run_detector(detector, path, amount):
 
   result = {key:value.numpy() for key,value in result.items()}
 
-  print("%d objeto(s) detectado(s)." % len(result["detection_scores"]))
-  print("Tiempo de inferencia: ", end_time-start_time)
   keys= result['detection_class_entities'][:amount]
   for i in range(amount): 
       keys[i]= keys[i].decode('ascii')
