@@ -1,4 +1,4 @@
-### Instrucciones para la ejecución de del script
+### Instrucciones para la ejecución del script
 
 ##### Parámetro 1:
 URL de la imagen con extensión .jpg, .png, .wpg o .gif.
