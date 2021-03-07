@@ -172,7 +172,7 @@ Una vez se ha implementado la función y se verificó que funciona correctamente
 
 ### Iniciar gcloud
 
-Para iniciar gcloud uamos:
+Para iniciar gcloud usamos:
 ```
 gcloud init
 ```
@@ -215,3 +215,4 @@ Para ejecutar la función a través del nodo de salida usamos (Devemos reemplaza
 curl <REMOTE>/function/<NOMBRE_PROYECTO> -d <PARAMETROS_FUNCION>
 ```
 
+### Función
